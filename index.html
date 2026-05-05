@@ -2265,7 +2265,9 @@ function openFlipbook(id, title){
   currentCatalog=id;
   currentPage=1;
   document.getElementById('flipbookTitle').textContent=title;
-  document.getElementById('flipbookFrame').src=cat.pdf+'#page=1&view=FitH&toolbar=0&navpanes=0';
+  // 用 Google PDF Viewer 確保跨瀏覽器相容
+  const pdfUrl=window.location.origin+'/'+cat.pdf;
+  document.getElementById('flipbookFrame').src='https://docs.google.com/viewer?url='+encodeURIComponent(pdfUrl)+'&embedded=true';
   document.getElementById('flipbookDl').href=cat.pdf;
   document.getElementById('flipbookDl').download='LoyalBirch_Catalog_2026_'+(id.split('_')[1]||'').toUpperCase()+'.pdf';
   updatePageInfo();
