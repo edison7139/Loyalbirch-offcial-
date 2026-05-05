@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 首頁 -->
+  <url>
+    <loc>https://www.loyalbirch.com/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://www.loyalbirch.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.loyalbirch.com/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ja"    href="https://www.loyalbirch.com/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="de"    href="https://www.loyalbirch.com/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="es"    href="https://www.loyalbirch.com/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="ar"    href="https://www.loyalbirch.com/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.loyalbirch.com/"/>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.loyalbirch.com/#about</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Products — Construction Screws -->
+  <url>
+    <loc>https://www.loyalbirch.com/#products</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Brands — Bear Grip -->
+  <url>
+    <loc>https://www.loyalbirch.com/#brands</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Catalogs -->
+  <url>
+    <loc>https://www.loyalbirch.com/#catalogs</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.loyalbirch.com/#contact</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
