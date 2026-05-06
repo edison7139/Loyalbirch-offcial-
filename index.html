@@ -434,10 +434,11 @@ body[dir="rtl"] .hero-video-placeholder{border-left:none;border-right:1px solid 
 .quality-name{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--black);margin-bottom:10px;font-weight:500;}
 .quality-desc{font-size:13px;line-height:1.7;color:var(--gray);}
 
-.markets-section{padding:0;background:#000510;position:relative;overflow:hidden;min-height:560px;display:flex;flex-direction:column;}
+.markets-section{padding:0;background:#000510;position:relative;overflow:hidden;min-height:560px;}
 .markets-section .eyebrow{color:var(--brand);}
-.market-text-overlay{padding:80px 80px 40px;position:relative;z-index:2;}
-.market-video-container{flex:1;min-height:360px;position:relative;overflow:hidden;}
+.market-text-overlay{position:absolute;top:0;left:0;right:0;padding:80px 80px 40px;z-index:2;}
+.market-video-container{position:absolute;inset:0;width:100%;height:100%;}
+.market-bg-video{width:100%;height:100%;object-fit:cover;opacity:0.6;display:block;}
 .market-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;}
 .market-video-ph{position:absolute;inset:0;background:#050a15;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
 .market-video-icon{width:72px;height:72px;border:1px solid #1a1a1a;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#222;font-size:22px;}
