@@ -171,7 +171,7 @@ body[dir="rtl"] .hero-video-placeholder{border-left:none;border-right:1px solid 
 .about-mfg{background:var(--dark-section);padding:100px 80px;color:var(--white);}
 .about-cert-imgs{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:52px;}
 .about-cert-img-card{background:#111;border:1px solid #1a1a1a;padding:20px;cursor:pointer;transition:border-color 0.2s;}
-.about-cert-img-card:hover{border-color:var(--brand);}
+.about-cert-img-card:hover{border-color:#1a1a1a;cursor:default;}
 .about-cert-img-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;margin-bottom:16px;}
 .about-cert-img-no{width:100%;aspect-ratio:3/4;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin-bottom:16px;border:1px solid #222;}
 .about-cert-img-no-icon{font-size:32px;color:#333;}
@@ -924,25 +924,25 @@ footer{background:var(--black);padding:64px 80px 0;}
       <p class="eyebrow reveal" style="color:var(--brand);margin-top:60px;margin-bottom:24px;" data-i18n="cert_eyebrow">Certifications</p>
       <h3 class="section-title reveal" style="font-size:28px;color:var(--white);margin-bottom:36px;" data-i18n="cert_title">Built to the World's Highest Standards.</h3>
       <div class="about-cert-imgs">
-        <div class="about-cert-img-card reveal" onclick="openCertLightbox('cert_iso.jpg')">
+        <div class="about-cert-img-card reveal">
           <img src="cert_iso.jpg" alt="ISO 9001:2015 Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="about-cert-img-no" style="display:none;"><div class="about-cert-img-icon">📋</div><div class="about-cert-img-no-text">ISO 9001</div></div>
           <div class="about-cert-label">ISO 9001:2015</div>
           <div class="about-cert-sub" data-i18n="cert1_title">International Quality Management</div>
         </div>
-        <div class="about-cert-img-card reveal" onclick="openCertLightbox('cert_jis.jpg')">
+        <div class="about-cert-img-card reveal">
           <img src="cert_jis.jpg" alt="JIS JQTW24003 Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="about-cert-img-no" style="display:none;"><div class="about-cert-img-icon">📋</div><div class="about-cert-img-no-text">JIS</div></div>
           <div class="about-cert-label">JIS JQTW24003</div>
           <div class="about-cert-sub" data-i18n="cert2_title">Japanese Industrial Standards</div>
         </div>
-        <div class="about-cert-img-card reveal" onclick="openCertLightbox('cert_ce14566.jpg')">
+        <div class="about-cert-img-card reveal">
           <img src="cert_ce14566.jpg" alt="CE 14566 Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="about-cert-img-no" style="display:none;"><div class="about-cert-img-icon">📋</div><div class="about-cert-img-no-text">CE 14566</div></div>
           <div class="about-cert-label">CE 14566</div>
           <div class="about-cert-sub" data-i18n="cert3_title">European Safety &amp; Performance</div>
         </div>
-        <div class="about-cert-img-card reveal" onclick="openCertLightbox('cert_ce14592.jpg')">
+        <div class="about-cert-img-card reveal">
           <img src="cert_ce14592.jpg" alt="CE 14592 Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="about-cert-img-no" style="display:none;"><div class="about-cert-img-icon">📋</div><div class="about-cert-img-no-text">CE 14592</div></div>
           <div class="about-cert-label">CE 14592</div>
@@ -1011,8 +1011,6 @@ footer{background:var(--black);padding:64px 80px 0;}
             <div class="about-oem-brand reveal"><span>Leading DIY &amp; Home Improvement Retailers</span></div>
             <div class="about-oem-brand reveal"><span>Tier-1 Construction Material Distributors</span></div>
           </div>
-            <div class="about-oem-brand">Makita</div>
-            <div class="about-oem-brand">Max</div>
           </div>
           <div style="margin-top:40px;padding-top:32px;border-top:1px solid #1a1a1a;">
             <p style="font-size:13px;color:#555;line-height:1.7;text-align:center;" data-i18n="oem_inquiry">Interested in an OEM partnership?</p>
