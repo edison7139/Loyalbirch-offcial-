@@ -2237,7 +2237,7 @@ function renderProducts(cat, pt) {
   }
   grid.innerHTML = items.map(p => `
     <div class="product-card" onclick="openDrawer('${p.id}')">
-      <div class="product-img-wrap"><div class="product-img-ph">🔩</div></div>
+      <div class="product-img-wrap"><img src="${p.id}.jpg" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="product-img-ph" style="display:none;">🔩</div></div>
       <div class="product-info">
         <div class="product-cat">${catNames[cat][currentLang]}${pt && pt !== 'null' ? ' · ' + ptNames[pt][currentLang] : ''}</div>
         <div class="product-name">${p.name}</div>
