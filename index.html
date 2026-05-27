@@ -153,14 +153,14 @@ body[dir="rtl"] .hero-content{margin-left:auto;margin-right:0;padding:0 80px;}
 ══════════════════════════════════════ */
 .about-page{padding-top:90px;}
 .about-hero{background:var(--black);padding:120px 80px;position:relative;overflow:hidden;min-height:500px;display:flex;align-items:center;}
-.about-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(200,82,42,0.08) 0%,transparent 70%);}
+.about-hero::before{content:'';position:absolute;inset:0;}
 /* About Hero Video */
 .about-hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4;}
-.about-hero-video-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#111 0%,#0a0a0a 100%);}
+.about-hero-video-ph{position:absolute;inset:0;overflow:hidden;}
 .about-hero-video-icon{width:56px;height:56px;border:1px solid #333;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#444;font-size:18px;}
 .about-hero-video-text{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#2a2a2a;}
-.about-hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.85) 40%,rgba(0,0,0,0.3) 100%);z-index:1;}
-.about-hero-inner{position:relative;z-index:2;max-width:720px;}
+.about-hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.65) 45%,rgba(0,0,0,0.1) 100%);z-index:1;}/* old: linear-gradient(to right,rgba(0,0,0,0.85) 40%,rgba(0,0,0,0.3) 100%);z-index:1;}
+.about-hero-inner{position:relative;z-index:2;max-width:720px;;position:relative;z-index:2;}
 .about-hero h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:800;color:var(--white);line-height:1.3;letter-spacing:-0.02em;padding-bottom:0.15em;}
 .about-hero h1 .accent{color:var(--brand);}
 .about-hero p{font-size:16px;color:#666;line-height:1.9;margin-top:24px;max-width:560px;}
@@ -865,8 +865,7 @@ footer{background:var(--black);padding:64px 80px 0;}
         </video>
       -->
       <div class="about-hero-video-ph">
-        <div class="about-hero-video-icon">▶</div>
-        <div class="about-hero-video-text">Factory / Brand Video</div>
+        <img src="about_hero.jpg" alt="Loyal & Birch manufacturing" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
       </div>
       <div class="about-hero-overlay"></div>
       <div class="about-hero-inner">
