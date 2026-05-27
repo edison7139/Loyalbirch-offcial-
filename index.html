@@ -95,7 +95,7 @@ nav.dark-hero .hamburger span{background:var(--white);}
 
 /* Animated canvas background */
 .hero-canvas{position:absolute;inset:0;overflow:hidden;}
-.hero-canvas::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 50%,rgba(200,82,42,0.12) 0%,transparent 70%);}
+.hero-canvas::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.1) 100%),radial-gradient(ellipse 80% 60% at 60% 50%,rgba(200,82,42,0.10) 0%,transparent 70%);}
 .particle-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,82,42,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(200,82,42,0.06) 1px,transparent 1px);background-size:60px 60px;animation:gridDrift 20s linear infinite;}
 .orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orbFloat 8s ease-in-out infinite;}
 .orb1{width:400px;height:400px;background:rgba(200,82,42,0.15);top:-100px;right:10%;animation-delay:0s;}
@@ -103,11 +103,11 @@ nav.dark-hero .hamburger span{background:var(--white);}
 .orb3{width:200px;height:200px;background:rgba(255,150,80,0.06);top:40%;right:5%;animation-delay:-6s;}
 
 /* Video container — replace div with <video> when ready */
-.hero-video-wrap{position:absolute;right:0;top:0;bottom:0;width:52%;overflow:hidden;}
-body[dir="rtl"] .hero-video-wrap{right:auto;left:0;}
+.hero-video-wrap{position:absolute;inset:0;width:100%;overflow:hidden;}
+body[dir="rtl"] .hero-video-wrap{}
 body[dir="rtl"] .hero-content{margin-left:auto;margin-right:0;padding:0 80px;}
-.hero-video-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#111 0%,#1a1a1a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;border-left:1px solid #1e1e1e;}
-body[dir="rtl"] .hero-video-placeholder{border-left:none;border-right:1px solid #1e1e1e;}
+.hero-video-placeholder{width:100%;height:100%;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
+
 .video-placeholder-icon{width:64px;height:64px;border:1px solid #333;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#444;font-size:20px;}
 .video-placeholder-text{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#333;}
 /* When you have video: replace .hero-video-placeholder with:
@@ -700,13 +700,9 @@ footer{background:var(--black);padding:64px 80px 0;}
       <div class="orb orb3"></div>
     </div>
 
-    <!-- Video area — swap this div for <video> tag when you have footage -->
+    <!-- Hero background image — replace src with hero_video.mp4 <video> tag when footage is ready -->
     <div class="hero-video-wrap">
-      <div class="hero-video-placeholder">
-        <div class="video-placeholder-icon">▶</div>
-        <div class="video-placeholder-text" data-i18n="hero_video_ph">Video coming soon</div>
-        <div style="font-size:10px;color:#222;letter-spacing:0.1em;text-transform:uppercase;margin-top:8px;" data-i18n="hero_video_hint">Replace with mp4 file</div>
-      </div>
+      <img src="hero_image.jpg" alt="Loyal & Birch precision fasteners" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:0.85;">
     </div>
 
     <div class="hero-content">
