@@ -620,6 +620,26 @@ footer{background:var(--black);padding:64px 80px 0;}
   .catalogs-grid{padding:40px 24px;grid-template-columns:1fr;}
   .flipbook-container{width:95vw;height:60vh;}
 }
+
+/* ── Download Gate Modal ── */
+.dl-gate-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:3000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+.dl-gate-overlay.open{opacity:1;pointer-events:all;}
+.dl-gate-box{background:#fff;width:100%;max-width:440px;margin:16px;padding:40px 36px 36px;position:relative;}
+.dl-gate-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:18px;cursor:pointer;color:#999;line-height:1;}
+.dl-gate-eyebrow{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--brand);margin-bottom:12px;}
+.dl-gate-title{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--black);margin-bottom:6px;letter-spacing:-0.02em;}
+.dl-gate-sub{font-size:13px;color:#888;margin-bottom:28px;line-height:1.5;}
+.dl-gate-form{display:flex;flex-direction:column;gap:14px;}
+.dl-gate-field{display:flex;flex-direction:column;gap:5px;}
+.dl-gate-field label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#666;}
+.dl-gate-field input,.dl-gate-field select{border:1px solid #ddd;padding:10px 12px;font-size:14px;font-family:var(--font-body);outline:none;background:#fff;color:var(--black);transition:border 0.2s;}
+.dl-gate-field input:focus,.dl-gate-field select:focus{border-color:var(--black);}
+.dl-gate-submit{background:var(--brand);color:#fff;border:none;padding:14px;font-family:var(--font-body);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;margin-top:4px;transition:opacity 0.2s;}
+.dl-gate-submit:hover{opacity:0.85;}
+.dl-gate-submit:disabled{opacity:0.5;cursor:not-allowed;}
+.dl-gate-success{text-align:center;padding:20px 0;}
+.dl-gate-success .check{font-size:40px;margin-bottom:12px;}
+.dl-gate-success p{font-size:14px;color:#555;line-height:1.6;}
 </style>
 </head>
 <body>
@@ -1073,7 +1093,7 @@ footer{background:var(--black);padding:64px 80px 0;}
           <p class="catalog-desc" data-i18n="cat_ja_desc">Complete product range including ZSPEAR Multi-Material Fasteners, AEGIS coating technology, collated screws, and full specification tables.</p>
           <div class="catalog-actions">
             <button class="catalog-btn-preview" onclick="openFlipbook('catalog_ja','日本語版 製品カタログ 2026')" data-i18n="cat_preview_btn">Preview Online</button>
-            <a class="catalog-btn-dl" href="catalog_ja.pdf" download="LoyalBirch_Catalog_2026_JA.pdf">
+            <a class="catalog-btn-dl" href="#" onclick="event.preventDefault();openDlGate('catalog_ja','catalog_ja.pdf','LoyalBirch_Catalog_2026_JA.pdf')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               <span data-i18n="cat_dl">Download PDF</span>
             </a>
@@ -1101,7 +1121,7 @@ footer{background:var(--black);padding:64px 80px 0;}
           <p class="catalog-desc" data-i18n="cat_en_desc">Complete product range including ZSPEAR Multi-Material Fasteners, AEGIS coating technology, collated screws, and full specification tables.</p>
           <div class="catalog-actions">
             <button class="catalog-btn-preview" onclick="openFlipbook('catalog_en','Product Catalog 2026 — English')" data-i18n="cat_preview_btn">Preview Online</button>
-            <a class="catalog-btn-dl" href="catalog_en.pdf" download="LoyalBirch_Catalog_2026_EN.pdf">
+            <a class="catalog-btn-dl" href="#" onclick="event.preventDefault();openDlGate('catalog_en','catalog_en.pdf','LoyalBirch_Catalog_2026_EN.pdf')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               <span data-i18n="cat_dl">Download PDF</span>
             </a>
@@ -1123,6 +1143,42 @@ footer{background:var(--black);padding:64px 80px 0;}
 </div>
 
 <!-- FlipBook Modal -->
+
+<!-- ══ Download Gate Modal ══ -->
+<div class="dl-gate-overlay" id="dlGateOverlay">
+  <div class="dl-gate-box">
+    <button class="dl-gate-close" onclick="closeDlGate()">✕</button>
+    <div id="dlGateForm">
+      <p class="dl-gate-eyebrow">Product Catalog</p>
+      <h3 class="dl-gate-title" id="dlGateTitle">Download Catalog</h3>
+      <p class="dl-gate-sub" id="dlGateSub">Please provide your details to download the catalog.</p>
+      <div class="dl-gate-form">
+        <div class="dl-gate-field">
+          <label id="lbl_name">Full Name</label>
+          <input type="text" id="dlName" placeholder="">
+        </div>
+        <div class="dl-gate-field">
+          <label id="lbl_company">Company</label>
+          <input type="text" id="dlCompany" placeholder="">
+        </div>
+        <div class="dl-gate-field">
+          <label id="lbl_email">Email</label>
+          <input type="email" id="dlEmail" placeholder="">
+        </div>
+        <div class="dl-gate-field">
+          <label id="lbl_country">Country / Region</label>
+          <input type="text" id="dlCountry" placeholder="">
+        </div>
+        <button class="dl-gate-submit" id="dlSubmitBtn" onclick="submitDlGate()">Download Now →</button>
+      </div>
+    </div>
+    <div class="dl-gate-success" id="dlGateSuccess" style="display:none;">
+      <div class="check">✓</div>
+      <p id="dlSuccessMsg">Your download will begin shortly.<br>Thank you for your interest in Loyal & Birch Co.</p>
+    </div>
+  </div>
+</div>
+
 <div class="flipbook-modal" id="flipbookModal">
   <div class="flipbook-header">
     <div class="flipbook-title" id="flipbookTitle">Product Catalog</div>
@@ -1135,7 +1191,7 @@ footer{background:var(--black);padding:64px 80px 0;}
     <button onclick="flipPrev()" data-i18n="fb_prev">← Prev</button>
     <div class="flipbook-page-info" id="flipbookPageInfo">Page 1</div>
     <button onclick="flipNext()" data-i18n="fb_next">Next →</button>
-    <a id="flipbookDl" href="" download style="margin-left:8px;">
+    <a id="flipbookDl" href="#" onclick="event.preventDefault();openDlGateFromFlipbook()" style="margin-left:8px;">
       <button data-i18n="cat_dl">Download PDF</button>
     </a>
   </div>
@@ -1964,8 +2020,7 @@ function openFlipbook(id, title){
   currentCatalog=id;
   currentPage=1;
   document.getElementById('flipbookTitle').textContent=title;
-  const pdfUrl=window.location.origin+'/'+cat.pdf;
-  document.getElementById('flipbookFrame').src='https://docs.google.com/viewer?url='+encodeURIComponent(pdfUrl)+'&embedded=true';
+  document.getElementById('flipbookFrame').src=cat.pdf;
   document.getElementById('flipbookDl').href=cat.pdf;
   document.getElementById('flipbookDl').download='LoyalBirch_Catalog_2026_'+(id.split('_')[1]||'').toUpperCase()+'.pdf';
   updatePageInfo();
@@ -2656,6 +2711,103 @@ function setLang(lang){
     if(T[lang]){T[lang].pt3_name=pt3[lang].name;T[lang].pt3_desc=pt3[lang].desc;}
   }
 })();
+
+// ── Download Gate ──
+let _dlGatePdf='', _dlGateFilename='', _dlGateCatalogId='';
+
+const _dlGateLabels = {
+  en: { eyebrow:'Product Catalog', title:'Download Catalog', sub:'Please provide your details to download the catalog.', name:'Full Name', company:'Company', email:'Email Address', country:'Country / Region', btn:'Download Now →', success:'Your download will begin shortly.<br>Thank you for your interest in Loyal & Birch Co.' },
+  zh: { eyebrow:'產品型錄', title:'下載型錄', sub:'請填寫以下資訊以下載型錄。', name:'姓名', company:'公司名稱', email:'電子郵件', country:'國家／地區', btn:'立即下載 →', success:'下載即將開始。<br>感謝您對 Loyal & Birch Co. 的關注。' },
+  ja: { eyebrow:'製品カタログ', title:'カタログをダウンロード', sub:'ダウンロードのために情報をご入力ください。', name:'お名前', company:'会社名', email:'メールアドレス', country:'国／地域', btn:'今すぐダウンロード →', success:'ダウンロードが開始されます。<br>Loyal & Birch Co. にご関心をいただきありがとうございます。' },
+  de: { eyebrow:'Produktkatalog', title:'Katalog herunterladen', sub:'Bitte geben Sie Ihre Daten ein.', name:'Name', company:'Unternehmen', email:'E-Mail', country:'Land / Region', btn:'Jetzt herunterladen →', success:'Der Download beginnt in Kürze.<br>Vielen Dank für Ihr Interesse.' },
+  es: { eyebrow:'Catálogo de Productos', title:'Descargar Catálogo', sub:'Por favor ingrese sus datos.', name:'Nombre', company:'Empresa', email:'Correo electrónico', country:'País / Región', btn:'Descargar ahora →', success:'La descarga comenzará en breve.<br>Gracias por su interés.' },
+  ar: { eyebrow:'كتالوج المنتجات', title:'تحميل الكتالوج', sub:'يرجى تقديم بياناتك لتحميل الكتالوج.', name:'الاسم الكامل', company:'الشركة', email:'البريد الإلكتروني', country:'الدولة / المنطقة', btn:'تحميل الآن →', success:'سيبدأ التحميل قريباً.<br>شكراً لاهتمامك بـ Loyal & Birch Co.' }
+};
+
+function openDlGate(catalogId, pdf, filename){
+  _dlGatePdf = pdf;
+  _dlGateFilename = filename;
+  _dlGateCatalogId = catalogId;
+  _renderDlGateLabels();
+  document.getElementById('dlGateForm').style.display='';
+  document.getElementById('dlGateSuccess').style.display='none';
+  document.getElementById('dlName').value='';
+  document.getElementById('dlCompany').value='';
+  document.getElementById('dlEmail').value='';
+  document.getElementById('dlCountry').value='';
+  document.getElementById('dlSubmitBtn').disabled=false;
+  document.getElementById('dlGateOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function openDlGateFromFlipbook(){
+  const cat = catalogs[currentCatalog];
+  if(!cat) return;
+  const filename = 'LoyalBirch_Catalog_2026_'+(currentCatalog.split('_')[1]||'').toUpperCase()+'.pdf';
+  openDlGate(currentCatalog, cat.pdf, filename);
+}
+
+function closeDlGate(){
+  document.getElementById('dlGateOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function _renderDlGateLabels(){
+  const lang = currentLang || 'en';
+  const l = _dlGateLabels[lang] || _dlGateLabels['en'];
+  document.querySelector('#dlGateOverlay .dl-gate-eyebrow').textContent = l.eyebrow;
+  document.getElementById('dlGateTitle').textContent = l.title;
+  document.getElementById('dlGateSub').textContent = l.sub;
+  document.getElementById('lbl_name').textContent = l.name;
+  document.getElementById('lbl_company').textContent = l.company;
+  document.getElementById('lbl_email').textContent = l.email;
+  document.getElementById('lbl_country').textContent = l.country;
+  document.getElementById('dlSubmitBtn').textContent = l.btn;
+}
+
+async function submitDlGate(){
+  const name = document.getElementById('dlName').value.trim();
+  const company = document.getElementById('dlCompany').value.trim();
+  const email = document.getElementById('dlEmail').value.trim();
+  const country = document.getElementById('dlCountry').value.trim();
+  if(!name||!email){
+    document.getElementById('dlName').style.borderColor = name ? '#ddd' : 'var(--brand)';
+    document.getElementById('dlEmail').style.borderColor = email ? '#ddd' : 'var(--brand)';
+    return;
+  }
+  const btn = document.getElementById('dlSubmitBtn');
+  btn.disabled = true;
+
+  // 送 Email via Formspree
+  try {
+    await fetch('https://formspree.io/f/FORMSPREE_ID', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({
+        _subject: '[Loyal & Birch] Catalog Download — ' + _dlGateCatalogId,
+        name, company, email, country,
+        catalog: _dlGateCatalogId
+      })
+    });
+  } catch(e){ console.warn('Form submit failed', e); }
+
+  // 觸發下載
+  const a = document.createElement('a');
+  a.href = _dlGatePdf;
+  a.download = _dlGateFilename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  // 顯示成功畫面
+  const lang = currentLang || 'en';
+  const l = _dlGateLabels[lang] || _dlGateLabels['en'];
+  document.getElementById('dlSuccessMsg').innerHTML = l.success;
+  document.getElementById('dlGateForm').style.display='none';
+  document.getElementById('dlGateSuccess').style.display='';
+  setTimeout(closeDlGate, 3000);
+}
+
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
