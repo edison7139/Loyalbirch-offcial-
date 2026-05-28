@@ -162,6 +162,14 @@ body[dir="rtl"] .hero-video-placeholder{border-left:none;border-right:1px solid 
 .about-story-right .eyebrow{color:var(--brand);}
 .about-mfg{background:var(--dark-section);padding:100px 80px;color:var(--white);}
 .about-mfg .eyebrow{color:var(--brand);}
+.about-cert-imgs{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:36px;}
+.about-cert-img-card{background:#111;border:1px solid #1a1a1a;padding:20px;transition:border-color 0.2s;}
+.about-cert-img-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;margin-bottom:16px;}
+.about-cert-img-no{width:100%;aspect-ratio:3/4;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin-bottom:16px;border:1px solid #222;}
+.about-cert-img-icon{font-size:32px;color:#333;}
+.about-cert-img-no-text{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#333;}
+.about-cert-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--brand);font-weight:600;margin-bottom:4px;}
+.about-cert-sub{font-size:12px;color:#555;line-height:1.5;}
 .about-mfg .section-title{color:var(--white);}
 .about-mfg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1a1a1a;margin-top:52px;border:1px solid #1a1a1a;}
 .about-mfg-card{background:var(--dark-section);padding:48px 36px;transition:background 0.25s;}
@@ -870,7 +878,7 @@ footer{background:var(--black);padding:64px 80px 0;}
 
     <!-- Manufacturing -->
     <div class="about-mfg">
-      <p class="eyebrow reveal" data-i18n="mfg_eyebrow">Manufacturing Capability</p>
+      <p class="eyebrow reveal" style="color:var(--brand);" data-i18n="mfg_eyebrow">Manufacturing Capability</p>
       <h2 class="section-title reveal" data-i18n="mfg_title">Scale That Delivers.<br><span class="accent">Quality That Holds.</span></h2>
       <div class="about-mfg-grid">
         <div class="about-mfg-card reveal">
@@ -886,255 +894,41 @@ footer{background:var(--black);padding:64px 80px 0;}
         <div class="about-mfg-card reveal">
           <div class="about-mfg-title" data-i18n="mfg3_title">Quality Control</div>
           <div class="about-mfg-num">100<span>%</span></div>
-          <p class="about-mfg-desc" data-i18n="mfg3_desc">Every shipment undergoes rigorous outgoing quality inspection before leaving our facility, ensuring zero-compromise standards.</p>
+          <p class="about-mfg-desc" data-i18n="mfg3_desc">Every shipment undergoes rigorous outgoing quality inspection before leaving our facility.</p>
         </div>
       </div>
-    </div>
 
-    <!-- OEM -->
-    <div class="about-oem">
-      <div class="about-oem-inner">
-        <div>
-          <p class="eyebrow reveal" data-i18n="oem_eyebrow">OEM Partnership</p>
-          <h2 class="section-title reveal" data-i18n="oem_title">Your Manufacturing<br><span class="accent">Partner.</span></h2>
-          <p class="section-body reveal" data-i18n="oem_body">OEM is at the core of what we do. We work closely with brand owners around the world to develop and manufacture fastening solutions that meet their exact specifications — with the discretion, reliability, and scale their business demands.</p>
-          <div class="about-oem-features">
-            <div class="about-oem-feature reveal">
-              <div class="about-oem-feature-icon">⚙️</div>
-              <div>
-                <h4 data-i18n="oem1_title">Custom Specifications</h4>
-                <p data-i18n="oem1_desc">From material grade and surface treatment to head type and drive recess — we manufacture to your exact requirements.</p>
-              </div>
-            </div>
-            <div class="about-oem-feature reveal">
-              <div class="about-oem-feature-icon">🔒</div>
-              <div>
-                <h4 data-i18n="oem2_title">Confidentiality</h4>
-                <p data-i18n="oem2_desc">Full NDA support. Your product specifications, designs, and business relationships remain strictly confidential.</p>
-              </div>
-            </div>
-            <div class="about-oem-feature reveal">
-              <div class="about-oem-feature-icon">📦</div>
-              <div>
-                <h4 data-i18n="oem3_title">Flexible MOQ</h4>
-                <p data-i18n="oem3_desc">Whether you need small-batch prototypes or high-volume production runs, we scale to match your business needs.</p>
-              </div>
-            </div>
-            <div class="about-oem-feature reveal">
-              <div class="about-oem-feature-icon">🚢</div>
-              <div>
-                <h4 data-i18n="oem4_title">Reliable Lead Times</h4>
-                <p data-i18n="oem4_desc">Consistent delivery schedules backed by stable inventory management and dedicated production planning.</p>
-              </div>
-            </div>
-          </div>
+      <p class="eyebrow reveal" style="color:var(--brand);margin-top:60px;margin-bottom:16px;" data-i18n="cert_eyebrow">Certifications</p>
+      <h3 class="section-title reveal" style="font-size:clamp(22px,2vw,32px);color:var(--white);margin-bottom:36px;" data-i18n="cert_title">Built to the World's Highest Standards.</h3>
+      <div class="about-cert-imgs">
+        <div class="about-cert-img-card reveal" style="cursor:default;-webkit-user-select:none;user-select:none;pointer-events:none;">
+          <img src="cert_iso.jpg" alt="ISO 9001:2015 Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="-webkit-user-drag:none;pointer-events:none;">
+          <div class="about-cert-img-no" style="display:none;"><div class="about-cert-img-icon">📋</div><div class="about-cert-img-no-text">ISO 9001</div></div>
+          <div class="about-cert-label">ISO 9001:2015</div>
+          <div class="about-cert-sub" data-i18n="cert1_title">International Quality Management</div>
         </div>
-        <div class="about-oem-right reveal">
-          <h3 data-i18n="oem_partners_title">Trusted by Global Brands</h3>
-          <p data-i18n="oem_partners_body">Our OEM track record includes partnerships with some of the world's most recognized power tool and hardware brands.</p>
-          <div class="about-oem-brands">
-            <div class="about-oem-brand reveal"><span>Fortune 500 Hardware Brands</span></div>
-            <div class="about-oem-brand reveal"><span>Global Power Tool Manufacturers</span></div>
-            <div class="about-oem-brand reveal"><span>Leading DIY &amp; Home Improvement Retailers</span></div>
-            <div class="about-oem-brand reveal"><span>Tier-1 Construction Material Distributors</span></div>
-          </div>
-          <div style="margin-top:40px;padding-top:32px;border-top:1px solid #1a1a1a;">
-            <p style="font-size:13px;color:#555;line-height:1.7;" data-i18n="oem_inquiry">Interested in an OEM partnership?</p>
-            <button class="btn-primary" style="margin-top:16px;" onclick="showPage('home');scrollTo('contact')" data-i18n="oem_cta">Start a Conversation →</button>
-          </div>
+        <div class="about-cert-img-card reveal" style="cursor:default;-webkit-user-select:none;user-select:none;pointer-events:none;">
+          <img src="cert_jis.jpg" alt="JIS JQTW24003 Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="-webkit-user-drag:none;pointer-events:none;">
+          <div class="about-cert-img-no" style="display:none;"><div class="about-cert-img-icon">📋</div><div class="about-cert-img-no-text">JIS</div></div>
+          <div class="about-cert-label">JIS JQTW24003</div>
+          <div class="about-cert-sub" data-i18n="cert2_title">Japanese Industrial Standards</div>
         </div>
-      </div>
-    </div>
-
-    <!-- DURABLECOAT -->
-    <div class="about-durable">
-      <!-- 
-        影片替換說明：把下方 div.about-durable-video-ph 整段換成：
-        <video autoplay muted loop playsinline class="about-durable-video">
-          <source src="your-durablecoat-video.mp4" type="video/mp4">
-        </video>
-        並保留 div.about-durable-video-overlay 讓文字清楚可讀
-      -->
-      <div class="about-durable-video-ph">
-        <div class="about-durable-ph-icon">▶</div>
-        <div class="about-durable-ph-text">DURABLECOAT® Technology Video</div>
-        <div class="about-durable-ph-hint">Replace with mp4</div>
-      </div>
-      <div class="about-durable-video-overlay"></div>
-      <div class="about-durable-inner">
-        <div>
-          <span class="about-durable-reg" data-i18n="dc_eyebrow">Patented Technology</span>
-          <h2>DURABLECOAT<sup style="font-size:0.4em;vertical-align:super;">®</sup></h2>
-          <p data-i18n="dc_desc">Our proprietary DURABLECOAT® surface treatment technology represents years of R&D investment — delivering superior corrosion resistance and coating adhesion that exceeds conventional treatments. The result: fasteners that perform longer, protect better, and outlast the competition.</p>
+        <div class="about-cert-img-card reveal" style="cursor:default;-webkit-user-select:none;user-select:none;pointer-events:none;">
+          <img src="cert_ce14566.jpg" alt="CE 14566 Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="-webkit-user-drag:none;pointer-events:none;">
+          <div class="about-cert-img-no" style="display:none;"><div class="about-cert-img-icon">📋</div><div class="about-cert-img-no-text">CE 14566</div></div>
+          <div class="about-cert-label">CE 14566</div>
+          <div class="about-cert-sub" data-i18n="cert3_title">European Safety &amp; Performance</div>
         </div>
-        <div class="about-durable-badges">
-          <div class="about-durable-badge reveal">
-            <div class="about-durable-badge-icon">🏛️</div>
-            <div>
-              <h4 data-i18n="dc1_title">Japan MLIT Certified</h4>
-              <p data-i18n="dc1_desc">Certified by Japan's Ministry of Land, Infrastructure, Transport and Tourism — one of the world's most rigorous building material standards.</p>
-            </div>
-          </div>
-          <div class="about-durable-badge reveal">
-            <div class="about-durable-badge-icon">🏗️</div>
-            <div>
-              <h4 data-i18n="dc2_title">Japan Building Association Designated</h4>
-              <p data-i18n="dc2_desc">Officially designated for use by the Japan Building Association, confirming DURABLECOAT® meets the standards of Japan's construction industry.</p>
-            </div>
-          </div>
-          <div class="about-durable-badge reveal">
-            <div class="about-durable-badge-icon">🔬</div>
-            <div>
-              <h4 data-i18n="dc3_title">Patented Formula</h4>
-              <p data-i18n="dc3_desc">Introduced to Taiwan in 1999, DURABLECOAT® remains a proprietary technology exclusive to Loyal & Birch Co. and its manufacturing operations.</p>
-            </div>
-          </div>
+        <div class="about-cert-img-card reveal" style="cursor:default;-webkit-user-select:none;user-select:none;pointer-events:none;">
+          <img src="cert_ce14592.jpg" alt="CE 14592 Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="-webkit-user-drag:none;pointer-events:none;">
+          <div class="about-cert-img-no" style="display:none;"><div class="about-cert-img-icon">📋</div><div class="about-cert-img-no-text">CE 14592</div></div>
+          <div class="about-cert-label">CE 14592</div>
+          <div class="about-cert-sub" data-i18n="cert3_title">European Safety &amp; Performance</div>
         </div>
-      </div>
-    </div>
-
-    <!-- Timeline -->
-    <div class="about-timeline">
-      <p class="eyebrow reveal" data-i18n="tl_eyebrow">Milestones</p>
-      <h2 class="section-title reveal" data-i18n="tl_title">25 Years of<br><span class="accent">Progress.</span></h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-content">
-              <h4 data-i18n="tl1_title">Laying the First Stone</h4>
-              <p data-i18n="tl1_desc">Founded as TAIKYU. Introduced Japan's advanced complex coating technology to Taiwan's fastener industry.</p>
-            </div>
-          </div>
-          <div class="timeline-center"><div class="timeline-year">1999</div></div>
-          <div class="timeline-right"></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left"></div>
-          <div class="timeline-center"><div class="timeline-year">2000</div></div>
-          <div class="timeline-right">
-            <div class="timeline-content">
-              <h4 data-i18n="tl2_title">ISO 9001 Certified</h4>
-              <p data-i18n="tl2_desc">Achieved ISO 9001:2008 certification and developed automated coating lines.</p>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-content">
-              <h4 data-i18n="tl3_title">DURABLECOAT® Patented</h4>
-              <p data-i18n="tl3_desc">Certified by Japan's MLIT and designated for use by the Japan Building Association.</p>
-            </div>
-          </div>
-          <div class="timeline-center"><div class="timeline-year">2005</div></div>
-          <div class="timeline-right"></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left"></div>
-          <div class="timeline-center"><div class="timeline-year">2007</div></div>
-          <div class="timeline-right">
-            <div class="timeline-content">
-              <h4 data-i18n="tl4_title">New Factory Established</h4>
-              <p data-i18n="tl4_desc">Started fastener manufacturing operations at Yong-An Industrial Park, offering fully integrated production from forming to packaging.</p>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-content">
-              <h4 data-i18n="tl5_title">Loyal & Birch Co. Founded</h4>
-              <p data-i18n="tl5_desc">Formally established Loyal & Birch Co. and expanded into the USA and Europe, partnering with Hitachi, Makita, and Max.</p>
-            </div>
-          </div>
-          <div class="timeline-center"><div class="timeline-year">2010</div></div>
-          <div class="timeline-right"></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left"></div>
-          <div class="timeline-center"><div class="timeline-year">2013</div></div>
-          <div class="timeline-right">
-            <div class="timeline-content">
-              <h4 data-i18n="tl6_title">CE 14566 & 14592 Certified</h4>
-              <p data-i18n="tl6_desc">Achieved European CE certification for safety and performance, opening doors to the EU construction market.</p>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-content">
-              <h4 data-i18n="tl7_title">PTIA Award Winner</h4>
-              <p data-i18n="tl7_desc">Won the 2018 PTIA Tool Innovation Award, recognizing our commitment to product and manufacturing excellence.</p>
-            </div>
-          </div>
-          <div class="timeline-center"><div class="timeline-year">2018</div></div>
-          <div class="timeline-right"></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left"></div>
-          <div class="timeline-center"><div class="timeline-year">2019</div></div>
-          <div class="timeline-right">
-            <div class="timeline-content">
-              <h4 data-i18n="tl8_title">ISO 9001:2015 Renewed</h4>
-              <p data-i18n="tl8_desc">Upgraded quality system to ISO 9001:2015 and introduced 26 new production lines for strip collated products.</p>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-content">
-              <h4 data-i18n="tl9_title">Capacity Expanded to 800t</h4>
-              <p data-i18n="tl9_desc">Acquired Da Pu self-drilling screws factory, increasing monthly production capacity to 800 metric tons.</p>
-            </div>
-          </div>
-          <div class="timeline-center"><div class="timeline-year">2021</div></div>
-          <div class="timeline-right"></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left"></div>
-          <div class="timeline-center"><div class="timeline-year">2022</div></div>
-          <div class="timeline-right">
-            <div class="timeline-content">
-              <h4 data-i18n="tl10_title">Digital Transformation Award</h4>
-              <p data-i18n="tl10_desc">Won Second Place at the Digital Transformation Awards, recognizing our investment in smart manufacturing.</p>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-content">
-              <h4 data-i18n="tl11_title">JIS JQTW24003 Certified</h4>
-              <p data-i18n="tl11_desc">Achieved Japanese Industrial Standards approval, cementing our position as a trusted partner for the Japan market.</p>
-            </div>
-          </div>
-          <div class="timeline-center"><div class="timeline-year">2024</div></div>
-          <div class="timeline-right"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Certifications -->
-    <div class="about-certs">
-      <p class="eyebrow reveal" data-i18n="cert_eyebrow">Certifications</p>
-      <h2 class="section-title reveal" data-i18n="cert_title">Built to the World's<br><span class="accent">Highest Standards.</span></h2>
-      <div class="about-certs-grid">
-        <div class="about-cert-card reveal">
-          <div class="about-cert-name">ISO 9001:2015</div>
-          <div class="about-cert-title" data-i18n="cert1_title">International Quality Management</div>
-          <p class="about-cert-desc" data-i18n="cert1_desc">Certified QMS ensuring consistent production standards across all product lines.</p>
-        </div>
-        <div class="about-cert-card reveal">
-          <div class="about-cert-name">JIS JQTW24003</div>
-          <div class="about-cert-title" data-i18n="cert2_title">Japanese Industrial Standards</div>
-          <p class="about-cert-desc" data-i18n="cert2_desc">JIS approved, confirming full compliance for the Japan market.</p>
-        </div>
-        <div class="about-cert-card reveal">
-          <div class="about-cert-name">CE 14566 / 14592</div>
-          <div class="about-cert-title" data-i18n="cert3_title">European Safety & Performance</div>
-          <p class="about-cert-desc" data-i18n="cert3_desc">CE marked meeting stringent European safety and performance requirements.</p>
-        </div>
-        <div class="about-cert-card reveal">
-          <div class="about-cert-name">ICC-ES</div>
-          <div class="about-cert-title" data-i18n="cert4_title">U.S. Building Code Compliance</div>
-          <p class="about-cert-desc" data-i18n="cert4_desc">ICC-ES evaluation confirms compliance with U.S. building codes.</p>
+        <div class="about-cert-img-card reveal" style="cursor:default;">
+          <div class="about-cert-img-no" style="display:flex;"><div class="about-cert-img-icon">🏛️</div><div class="about-cert-img-no-text">ICC-ES</div></div>
+          <div class="about-cert-label">ICC-ES</div>
+          <div class="about-cert-sub" data-i18n="cert4_title">U.S. Building Code Compliance</div>
         </div>
       </div>
     </div>
@@ -2361,7 +2155,7 @@ function renderProducts(cat, pt) {
   }
   grid.innerHTML = items.map(p => `
     <div class="product-card" onclick="openDrawer('${p.id}')">
-      <div class="product-img-wrap"><div class="product-img-ph">🔩</div></div>
+      <div class="product-img-wrap"><img src="${p.id}.jpg" alt="${p.name}" loading="lazy" onerror="this.parentNode.style.background='#f0f0f0'"><div class="product-img-ph" style="display:none;">🔩</div></div>
       <div class="product-info">
         <div class="product-cat">${catNames[cat][currentLang]}${pt && pt !== 'null' ? ' · ' + ptNames[pt][currentLang] : ''}</div>
         <div class="product-name">${p.name}</div>
