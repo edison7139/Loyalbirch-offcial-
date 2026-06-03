@@ -1,7 +1,22 @@
 {
   "redirects": [
     {
-      "source": "/:path((?!.*\\.).*)",
+      "source": "/zh/:path*",
+      "destination": "https://www.loyalbirch.com",
+      "permanent": true
+    },
+    {
+      "source": "/collections/:path*",
+      "destination": "https://www.loyalbirch.com",
+      "permanent": true
+    },
+    {
+      "source": "/pages/:path*",
+      "destination": "https://www.loyalbirch.com",
+      "permanent": true
+    },
+    {
+      "source": "/products/:path*",
       "destination": "https://www.loyalbirch.com",
       "permanent": true
     }
